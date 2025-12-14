@@ -1,108 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Details Form</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Details Management</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Student Details Management System</h1>
-            <p>Add and manage student information</p>
-        </header>
+  <div class="container">
+    <header>
+      <h1>Student Details Management System</h1>
+      <p>Add and manage student information</p>
+    </header>
 
-        <!-- Student Details Form -->
-        <section class="form-section">
-            <h2>Add New Student</h2>
-            <form id="studentForm" class="student-form">
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        placeholder="Enter student name"
-                        required
-                    >
-                </div>
+    <!-- Student Form -->
+    <form id="studentForm" class="student-form">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" id="name" required />
+  </div>
 
-                <div class="form-group">
-                    <label for="class">Class *</label>
-                    <input 
-                        type="text" 
-                        id="class" 
-                        name="class" 
-                        placeholder="Enter class (e.g., 10A, 11B)"
-                        required
-                    >
-                </div>
+  <div class="form-group">
+    <label>Class</label>
+    <input type="text" id="class" required />
+  </div>
 
-                <div class="form-group">
-                    <label for="admissionNumber">Admission Number *</label>
-                    <input 
-                        type="text" 
-                        id="admissionNumber" 
-                        name="admissionNumber" 
-                        placeholder="Enter admission number"
-                        required
-                    >
-                </div>
+  <div class="form-group">
+    <label>Admission Number</label>
+    <input type="text" id="admissionNumber" required />
+  </div>
 
-                <div class="form-group">
-                    <label for="phoneNumber">Phone Number *</label>
-                    <input 
-                        type="tel" 
-                        id="phoneNumber" 
-                        name="phoneNumber" 
-                        placeholder="Enter phone number"
-                        pattern="[0-9\-\+\(\)\s]+"
-                        required
-                    >
-                </div>
+  <div class="form-group">
+    <label>Phone Number</label>
+    <input type="text" id="phoneNumber" required />
+  </div>
 
-                <div class="form-group">
-                    <label for="address">Address *</label>
-                    <textarea 
-                        id="address" 
-                        name="address" 
-                        placeholder="Enter student address"
-                        rows="3"
-                        required
-                    ></textarea>
-                </div>
+  <div class="form-group">
+    <label>Address</label>
+    <textarea id="address" required></textarea>
+  </div>
 
-                <button type="submit" class="btn-save">Save Student</button>
-            </form>
-        </section>
+  <button type="submit" class="btn-save">Save Student</button>
+</form>
 
-        <!-- Student Records Table -->
-        <section class="table-section">
-            <h2>Student Records</h2>
-            <div class="table-wrapper">
-                <table id="studentsTable" class="students-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Class</th>
-                            <th>Admission Number</th>
-                            <th>Phone Number</th>
-                            <th>Address</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                        <!-- Student records will be inserted here -->
-                    </tbody>
-                </table>
-            </div>
-            <p id="emptyMessage" class="empty-message">No student records yet. Add a new student to get started.</p>
-        </section>
-    </div>
 
-    <script src="app.js"></script>
+    <!-- Table -->
+    <section class="table-section">
+      <h2>Student Records</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Admission No</th>
+            <th>Phone</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+
+      <p id="emptyMessage">No student records yet.</p>
+    </section>
+  </div>
+
+  <!-- MUST be module -->
+  <script type="module" src="app.js"></script>
 </body>
 </html>
-
-
