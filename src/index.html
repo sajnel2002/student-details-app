@@ -15,34 +15,36 @@
 
     <!-- Student Form -->
     <form id="studentForm" class="student-form">
-  <div class="form-group">
-    <label>Name</label>
-    <input type="text" id="name" required />
-  </div>
 
-  <div class="form-group">
-    <label>Class</label>
-    <input type="text" id="class" required />
-  </div>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="name" required />
+      </div>
 
-  <div class="form-group">
-    <label>Admission Number</label>
-    <input type="text" id="admissionNumber" required />
-  </div>
+      <div class="form-group">
+        <label>Class</label>
+        <input type="text" id="class" required />
+      </div>
 
-  <div class="form-group">
-    <label>Phone Number</label>
-    <input type="text" id="phoneNumber" required />
-  </div>
+      <div class="form-group">
+        <label>Admission Number</label>
+        <!-- ✅ FIXED ID -->
+        <input type="text" id="admission_no" required />
+      </div>
 
-  <div class="form-group">
-    <label>Address</label>
-    <textarea id="address" required></textarea>
-  </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <!-- ✅ FIXED ID -->
+        <input type="text" id="phone" required />
+      </div>
 
-  <button type="submit" class="btn-save">Save Student</button>
-</form>
+      <div class="form-group">
+        <label>Address</label>
+        <textarea id="address" required></textarea>
+      </div>
 
+      <button type="submit" class="btn-save">Save Student</button>
+    </form>
 
     <!-- Table -->
     <section class="table-section">

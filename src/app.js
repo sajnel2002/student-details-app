@@ -1,6 +1,6 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-// ✅ Your Supabase credentials
+// 🔐 Supabase credentials
 const SUPABASE_URL = "https://gpjwdvulzecbpfqgugzr.supabase.co";
 const SUPABASE_KEY = "sb_publishable_FE9JDVBTVGbCTzox6RN89Q_4WHT3zyK";
 
@@ -11,15 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const tableBody = document.getElementById("tableBody");
   const emptyMessage = document.getElementById("emptyMessage");
 
+  // Load data on page load
+  loadStudents();
+
+  // Save student
   form.addEventListener("submit", saveStudent);
 
   async function saveStudent(e) {
     e.preventDefault();
 
-    // ✅ MUST match table column names
     const student = {
       name: document.getElementById("name").value.trim(),
-      class: document.getElementById("class").value.trim(),
+      student_class: document.getElementById("class").value.trim(),
       admission_no: document.getElementById("admission_no").value.trim(),
       phone: document.getElementById("phone").value.trim(),
       address: document.getElementById("address").value.trim(),
@@ -28,17 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const { error } = await supabase.from("students").insert([student]);
 
     if (error) {
-      alert("Error saving student");
       console.error(error);
+      alert("Error saving student");
       return;
     }
 
     form.reset();
-    loadStudents();
+    loadStudents(); // refresh table
   }
 
   async function loadStudents() {
-    const { data, error } = await supabase.from("students").select("*");
+    const { data, error } = await supabase
+      .from("students")
+      .select("*");
 
     if (error) {
       console.error(error);
@@ -58,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${s.name}</td>
-        <td>${s.class}</td>
+        <td>${s.student_class}</td>
         <td>${s.admission_no}</td>
         <td>${s.phone}</td>
         <td>${s.address}</td>
@@ -66,6 +71,4 @@ document.addEventListener("DOMContentLoaded", () => {
       tableBody.appendChild(row);
     });
   }
-
-  loadStudents();
 });
